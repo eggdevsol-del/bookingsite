@@ -24,12 +24,12 @@ export const AboutSheet: React.FC = () => {
                     <X size={24} />
                 </button>
 
-                {/* Left Side: Portrait */}
-                <div className={styles.imageSide}>
+                {/* Circular Profile Image at Top */}
+                <div className={styles.imageContainer}>
                     <img src={aboutPortrait} alt="Piripi Mason" className={styles.profileImg} />
                 </div>
 
-                {/* Right Side: Text Content */}
+                {/* Text Content Below */}
                 <div className={styles.contentSide}>
                     <h2 className={styles.title}>THE STANDARD</h2>
                     <p className={styles.subtitle}>EST. 2024</p>
