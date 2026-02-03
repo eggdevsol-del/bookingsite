@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { BookingSheet } from '../ui/BookingSheet';
 import { AboutSheet } from '../ui/AboutSheet';
+import { CreativeFreedomSheet } from '../ui/CreativeFreedomSheet';
 import { APP_VERSION } from '../../version';
 
 export const AppShell: React.FC = () => {
@@ -12,6 +13,7 @@ export const AppShell: React.FC = () => {
             <Navbar />
             <BookingSheet />
             <AboutSheet />
+            <CreativeFreedomSheet />
             <main style={{ flex: 1 }}>
                 <Outlet />
             </main>

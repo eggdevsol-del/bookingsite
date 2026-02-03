@@ -3,6 +3,7 @@ import { EditableImage } from '../components/ui/EditableImage';
 import { GoldButton } from '../components/ui/GoldButton';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
 import { HeroReveal } from '../components/ui/HeroReveal';
+import { PromoBanner } from '../components/ui/PromoBanner';
 import { useUIStore } from '../store/uiStore';
 import styles from './Home.module.css';
 
@@ -64,6 +65,9 @@ export const Home: React.FC = () => {
                     </div>
                 </div>
             </section>
+
+            {/* PROMOTIONAL BANNER */}
+            <PromoBanner />
 
             {/* TRUST STATS */}
             <section className={styles.trustStats}>
