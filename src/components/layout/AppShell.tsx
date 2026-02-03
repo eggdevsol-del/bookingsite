@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { BookingSheet } from '../ui/BookingSheet';
 import { AboutSheet } from '../ui/AboutSheet';
+import { APP_VERSION } from '../../version';
 
 export const AppShell: React.FC = () => {
 
@@ -22,7 +23,12 @@ export const AppShell: React.FC = () => {
                 color: '#444',
                 fontSize: '0.8rem'
             }}>
-                <p>&copy; {new Date().getFullYear()} Piripi Mason Tattoo. All rights reserved.</p>
+                <p>
+                    &copy; {new Date().getFullYear()} Piripi Mason Tattoo. All rights reserved.
+                    <span style={{ marginLeft: '0.8rem', opacity: 0.3, fontSize: '0.7em', border: '1px solid #333', padding: '2px 6px', borderRadius: '4px' }}>
+                        {APP_VERSION}
+                    </span>
+                </p>
                 {/* Admin Toggle Removed */}
             </footer>
         </div>
