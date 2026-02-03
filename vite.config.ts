@@ -9,6 +9,39 @@ export default defineConfig({
         VitePWA({
             registerType: 'autoUpdate',
             includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg', '**/*.mp4', '**/*.mov'],
+            workbox: {
+                globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,mp4,mov}'],
+                runtimeCaching: [
+                    {
+                        urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+                        handler: 'CacheFirst',
+                        options: {
+                            cacheName: 'google-fonts-cache',
+                            expiration: {
+                                maxEntries: 10,
+                                maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
+                            },
+                            cacheableResponse: {
+                                statuses: [0, 200]
+                            }
+                        }
+                    },
+                    {
+                        urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp)$/,
+                        handler: 'CacheFirst',
+                        options: {
+                            cacheName: 'images-cache',
+                            expiration: {
+                                maxEntries: 60,
+                                maxAgeSeconds: 60 * 60 * 24 * 30 // 30 days
+                            }
+                        }
+                    }
+                ],
+                // Force service worker to skip waiting and activate immediately
+                skipWaiting: true,
+                clientsClaim: true
+            },
             manifest: {
                 name: 'P Mason Tattoo',
                 short_name: 'PMasonTattoo',
