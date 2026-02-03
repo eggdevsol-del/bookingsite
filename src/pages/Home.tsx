@@ -60,6 +60,7 @@ export const Home: React.FC = () => {
                         <HeroReveal>
                             <div className={styles.heroCta}>
                                 <GoldButton className={styles.heroBtn} onClick={openBooking}>REQUEST CONSULTATION</GoldButton>
+                                <span className={styles.inquiryEmail}>Enquiries: bookings@pmasontattoo.com</span>
                             </div>
                         </HeroReveal>
                     </div>
@@ -106,8 +107,9 @@ export const Home: React.FC = () => {
                     <p>Begin the dialogue for your bespoke body art.</p>
                 </ScrollReveal>
                 <ScrollReveal>
-                    <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center' }}>
+                    <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <GoldButton onClick={openBooking}>REQUEST CONSULTATION</GoldButton>
+                        <span className={styles.inquiryEmail}>Enquiries: bookings@pmasontattoo.com</span>
                     </div>
                 </ScrollReveal>
             </section>

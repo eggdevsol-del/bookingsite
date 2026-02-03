@@ -447,3 +447,13 @@
     color: #888;
     text-align: center;
 }
+
+.inquiryEmail {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: #666;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+}
