@@ -72,6 +72,16 @@ export const Navbar: React.FC = () => {
                         className={styles.mobileLink}
                         style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}
                         onClick={() => {
+                            openAbout();
+                            setIsOpen(false);
+                        }}
+                    >
+                        About
+                    </button>
+                    <button
+                        className={styles.mobileLink}
+                        style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}
+                        onClick={() => {
                             openBooking();
                             setIsOpen(false);
                         }}
