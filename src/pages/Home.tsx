@@ -1,7 +1,8 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { EditableImage } from '../components/ui/EditableImage';
 import { GoldButton } from '../components/ui/GoldButton';
+import { ScrollReveal } from '../components/ui/ScrollReveal';
+import { HeroReveal } from '../components/ui/HeroReveal';
 import { useUIStore } from '../store/uiStore';
 import styles from './Home.module.css';
 
@@ -39,56 +40,72 @@ export const Home: React.FC = () => {
 
                 {/* Center Overlay Content */}
                 <div className={styles.heroCenterContent}>
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                        className={styles.titleWrapper}
-                    >
+                    <div className={styles.titleWrapper}>
                         <h1 className={styles.mainTitle}>
                             <span className={styles.titleTop}>PIRIPI MASON</span>
                             <span className={styles.titleSub}>TATTOO ARTIST</span>
                         </h1>
 
-                        <h2 className={styles.heroHeadline}>
-                            Craftsmanship Without Compromise.
-                        </h2>
-                        <p className={styles.heroByline}>BRISBANE BASED AWARD WINNING REALISM TATTOO ARTISTRY</p>
+                        <HeroReveal>
+                            <h2 className={styles.heroHeadline}>
+                                Craftsmanship Without Compromise.
+                            </h2>
+                        </HeroReveal>
 
-                        <div className={styles.heroCta}>
-                            <GoldButton className={styles.heroBtn} onClick={openBooking}>REQUEST CONSULTATION</GoldButton>
-                        </div>
-                    </motion.div>
+                        <HeroReveal>
+                            <p className={styles.heroByline}>BRISBANE BASED AWARD WINNING REALISM TATTOO ARTISTRY</p>
+                        </HeroReveal>
+
+                        <HeroReveal>
+                            <div className={styles.heroCta}>
+                                <GoldButton className={styles.heroBtn} onClick={openBooking}>REQUEST CONSULTATION</GoldButton>
+                            </div>
+                        </HeroReveal>
+                    </div>
                 </div>
             </section>
 
             {/* TRUST STATS */}
             <section className={styles.trustStats}>
                 <div className={styles.statItem}>
-                    <span className={styles.statValue}>300+</span>
-                    <span className={styles.statLabel}>Satisfied Returning Clients</span>
+                    <ScrollReveal>
+                        <span className={styles.statValue}>300+</span>
+                        <span className={styles.statLabel}>Satisfied Returning Clients</span>
+                    </ScrollReveal>
                 </div>
                 <div className={styles.statItem}>
-                    <span className={styles.statValue}>Private</span>
-                    <span className={styles.statLabel}>Hand Crafted Studio</span>
+                    <ScrollReveal>
+                        <span className={styles.statValue}>Private</span>
+                        <span className={styles.statLabel}>Hand Crafted Studio</span>
+                    </ScrollReveal>
                 </div>
                 <div className={styles.statItem}>
-                    <span className={styles.statValue}>5.0</span>
-                    <span className={styles.statLabel}>Star Google Reviews</span>
+                    <ScrollReveal>
+                        <span className={styles.statValue}>5.0</span>
+                        <span className={styles.statLabel}>Star Google Reviews</span>
+                    </ScrollReveal>
                 </div>
                 <div className={styles.statItem}>
-                    <span className={styles.statValue}>13</span>
-                    <span className={styles.statLabel}>Years Industry Experience</span>
+                    <ScrollReveal>
+                        <span className={styles.statValue}>13</span>
+                        <span className={styles.statLabel}>Years Industry Experience</span>
+                    </ScrollReveal>
                 </div>
             </section>
 
             {/* FOOTER CTA */}
             <section className={styles.footerCta}>
-                <h3>COMMISSION YOUR MASTERPIECE</h3>
-                <p>Begin the dialogue for your bespoke body art.</p>
-                <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center' }}>
-                    <GoldButton onClick={openBooking}>REQUEST CONSULTATION</GoldButton>
-                </div>
+                <ScrollReveal>
+                    <h3>COMMISSION YOUR MASTERPIECE</h3>
+                </ScrollReveal>
+                <ScrollReveal>
+                    <p>Begin the dialogue for your bespoke body art.</p>
+                </ScrollReveal>
+                <ScrollReveal>
+                    <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center' }}>
+                        <GoldButton onClick={openBooking}>REQUEST CONSULTATION</GoldButton>
+                    </div>
+                </ScrollReveal>
             </section>
 
         </div>

@@ -114,6 +114,18 @@
 
 
 
+@keyframes edgeGlow {
+
+    0%,
+    100% {
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+    }
+
+    50% {
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 1), 0 0 25px rgba(212, 175, 55, 0.8);
+    }
+}
+
 .heroHeadline {
     font-family: var(--font-serif);
     font-size: 2.8rem;
@@ -123,6 +135,7 @@
     margin: 1rem 0;
     text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
     text-align: center;
+    animation: edgeGlow 5s ease-in-out infinite;
 }
 
 .heroByline {
