@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { BookingSheet } from '../ui/BookingSheet';
+import { AboutSheet } from '../ui/AboutSheet';
 
 export const AppShell: React.FC = () => {
 
@@ -9,6 +10,7 @@ export const AppShell: React.FC = () => {
         <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
             <Navbar />
             <BookingSheet />
+            <AboutSheet />
             <main style={{ flex: 1 }}>
                 <Outlet />
             </main>

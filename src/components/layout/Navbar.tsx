@@ -8,7 +8,7 @@ export const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
-    const openBooking = useUIStore((state) => state.openBooking);
+    const { openBooking, openAbout } = useUIStore((state) => state);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -29,7 +29,13 @@ export const Navbar: React.FC = () => {
             <div className={styles.container}>
                 {/* Left Links */}
                 <div className={styles.desktopNavLeft}>
-                    <Link to="/about" className={styles.link}>ABOUT</Link>
+                    <button
+                        className={styles.link}
+                        style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit', padding: 0 }}
+                        onClick={openAbout}
+                    >
+                        ABOUT
+                    </button>
                 </div>
 
                 {/* Center Logo */}
