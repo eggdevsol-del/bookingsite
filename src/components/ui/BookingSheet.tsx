@@ -45,6 +45,9 @@ Budget: ${formData.budget}
 ${formData.description}
 
 __________________________
+
+** PLEASE ATTACH YOUR REFERENCES AND BODY PHOTOS TO THIS EMAIL **
+__________________________
 Sent via P Mason Tattoo App`.trim();
 
         // 3. Construct Mailto Link
