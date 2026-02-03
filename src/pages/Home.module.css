@@ -386,6 +386,7 @@
 }
 
 .statValue {
+    display: block;
     font-family: var(--font-serif);
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
@@ -409,6 +410,7 @@
 }
 
 .statLabel {
+    display: block;
     color: #888;
     font-size: 0.8rem;
     letter-spacing: 0.1em;
