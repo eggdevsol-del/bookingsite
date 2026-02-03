@@ -8,9 +8,9 @@ export default defineConfig({
         react(),
         VitePWA({
             registerType: 'autoUpdate',
-            includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg', '**/*.mp4', '**/*.mov'],
+            includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
             workbox: {
-                globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,mp4,mov}'],
+                globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp}'],
                 runtimeCaching: [
                     {
                         urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
