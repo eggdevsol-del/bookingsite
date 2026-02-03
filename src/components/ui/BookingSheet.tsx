@@ -30,11 +30,13 @@ export const BookingSheet: React.FC = () => {
         // 2. Structured Body for Artist Readability
         // Using %0D%0A for universal newlines in mailto links
         const body = `
+REPLY TO: ${formData.email}
+__________________________
+
 *** NEW TATTOO INQUIRY ***
 
 -- CLIENT DETAILS --
 Name: ${formData.name}
-Email: ${formData.email}
 Phone: ${formData.phone}
 
 -- PROJECT INFO --

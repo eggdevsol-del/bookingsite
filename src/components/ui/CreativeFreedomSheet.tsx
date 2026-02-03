@@ -28,11 +28,13 @@ export const CreativeFreedomSheet: React.FC = () => {
         const subject = `CREATIVE FREEDOM - Inquiry Tattoo: ${formData.name ? formData.name : 'New Client'} - ${formData.placement}`;
 
         const body = `
+REPLY TO: ${formData.email}
+__________________________
+
 *** CREATIVE FREEDOM PROJECT INQUIRY ***
 
 -- CLIENT DETAILS --
 Name: ${formData.name}
-Email: ${formData.email}
 Phone: ${formData.phone}
 
 -- PROJECT INFO --
