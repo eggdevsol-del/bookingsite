@@ -1,0 +1,173 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    transition: padding 0.5s ease;
+    padding: 1.5rem 0;
+    border-bottom: none;
+    background: transparent;
+}
+
+.scrolled {
+    padding: 0.8rem 0;
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: none;
+    box-shadow: none;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: 60px;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    top: 0;
+    transition: all 0.5s ease;
+    height: 100%;
+    /* Match container height */
+    width: 200px;
+    /* Stable width for centering */
+}
+
+.scrolled .logo {
+    opacity: 0;
+    /* Fade out completely on scroll as requested */
+    pointer-events: none;
+}
+
+.logoImg {
+    height: 120px;
+    /* Large initial size (~50% of a typical hero header feel, or overlapping) */
+    width: auto;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6));
+    transition: all 0.5s ease;
+    margin-top: 1rem;
+}
+
+.logoText span:first-child {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #d4af37;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.logoSub {
+    font-size: 0.6rem;
+    letter-spacing: 0.4em;
+    color: #aaa;
+    border-top: 1px solid #555;
+    padding-top: 2px;
+    width: 100%;
+    text-align: center;
+    margin-top: 2px;
+}
+
+.desktopNavLeft,
+.desktopNavRight {
+    display: none;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (min-width: 900px) {
+
+    .desktopNavLeft,
+    .desktopNavRight {
+        display: flex;
+    }
+}
+
+.link {
+    color: #ccc;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.link:hover {
+    color: #d4af37;
+}
+
+.socials {
+    display: flex;
+    gap: 1rem;
+    border-left: 1px solid #444;
+    padding-left: 1.5rem;
+    margin-left: 1.5rem;
+}
+
+.socialLink {
+    color: #aaa;
+    transition: color 0.3s ease;
+}
+
+.socialLink:hover {
+    color: #d4af37;
+}
+
+/* Mobile */
+.mobileToggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 102;
+    margin-left: auto;
+}
+
+@media (min-width: 900px) {
+    .mobileToggle {
+        display: none;
+    }
+}
+
+.mobileMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #050505;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 101;
+}
+
+.mobileMenu.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobileLink {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: #d4af37;
+    text-transform: uppercase;
+}

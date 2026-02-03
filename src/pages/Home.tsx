@@ -1,0 +1,98 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { EditableImage } from '../components/ui/EditableImage';
+import { GoldButton } from '../components/ui/GoldButton';
+import { useUIStore } from '../store/uiStore';
+import styles from './Home.module.css';
+
+export const Home: React.FC = () => {
+    const openBooking = useUIStore((state) => state.openBooking);
+
+
+
+    return (
+        <div className={styles.page}>
+
+            {/* SPLIT HERO SECTION */}
+            <section className={styles.splitHero}>
+                {/* Left Statue (Video: Studio) */}
+                <div className={styles.heroLeft}>
+                    <EditableImage
+                        contentKey="hero-statue"
+                        defaultSrc="/media/studio.webm"
+                        alt="Classical Studio Video"
+                        className={styles.heroImg}
+                    />
+                    <div className={styles.heroGradientLeft}></div>
+                </div>
+
+                {/* Right Model (Video: Lioness) */}
+                <div className={styles.heroRight}>
+                    <EditableImage
+                        contentKey="hero-model"
+                        defaultSrc="/media/lioness.webm"
+                        alt="Lioness Video"
+                        className={styles.heroImg}
+                    />
+                    <div className={styles.heroGradientRight}></div>
+                </div>
+
+                {/* Center Overlay Content */}
+                <div className={styles.heroCenterContent}>
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                        className={styles.titleWrapper}
+                    >
+                        <h1 className={styles.mainTitle}>
+                            <span className={styles.titleTop}>PIRIPI MASON</span>
+                            <span className={styles.titleSub}>TATTOO ARTIST</span>
+                        </h1>
+                        <div className={styles.ornamentDivider}>
+                            <img src="/src/assets/logo_crest.png" alt="Crest" className={styles.heroCrest} />
+                        </div>
+                        <h2 className={styles.heroHeadline}>
+                            Timeless Tattoo Artistry.<br />Executed Without Compromise.
+                        </h2>
+                        <p className={styles.heroByline}>BRISBANE BASED AWARD WINNING REALISM TATTOO ARTISTRY</p>
+
+                        <div className={styles.heroCta}>
+                            <GoldButton className={styles.heroBtn} onClick={openBooking}>REQUEST CONSULTATION</GoldButton>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* TRUST STATS */}
+            <section className={styles.trustStats}>
+                <div className={styles.statItem}>
+                    <span className={styles.statValue}>300+</span>
+                    <span className={styles.statLabel}>Satisfied Returning Clients</span>
+                </div>
+                <div className={styles.statItem}>
+                    <span className={styles.statValue}>Private</span>
+                    <span className={styles.statLabel}>Hand Crafted Studio</span>
+                </div>
+                <div className={styles.statItem}>
+                    <span className={styles.statValue}>5.0</span>
+                    <span className={styles.statLabel}>Star Google Reviews</span>
+                </div>
+                <div className={styles.statItem}>
+                    <span className={styles.statValue}>13</span>
+                    <span className={styles.statLabel}>Years Industry Experience</span>
+                </div>
+            </section>
+
+            {/* FOOTER CTA */}
+            <section className={styles.footerCta}>
+                <h3>COMMISSION YOUR MASTERPIECE</h3>
+                <p>Begin the dialogue for your bespoke body art.</p>
+                <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center' }}>
+                    <GoldButton onClick={openBooking}>REQUEST CONSULTATION</GoldButton>
+                </div>
+            </section>
+
+        </div>
+    );
+};

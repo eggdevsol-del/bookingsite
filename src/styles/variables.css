@@ -1,0 +1,46 @@
+:root {
+    /* Core Palette - Classical Gold */
+    --color-bg-deep: #050505;
+    --color-bg-surface: #0a0a0a;
+    --color-bg-glass: rgba(5, 5, 5, 0.9);
+
+    --color-primary: #D4AF37;
+    /* Classical Gold */
+    --color-primary-dim: #8a7020;
+    --color-primary-glow: rgba(212, 175, 55, 0.3);
+
+    --color-accent: #C5A028;
+    /* Deep Gold */
+    --color-accent-glow: rgba(197, 160, 40, 0.4);
+
+    --color-text-main: #f0f0f0;
+    --color-text-muted: #888888;
+    --color-text-gold: #F4D03F;
+
+    --color-border: #333;
+    --color-border-gold: rgba(212, 175, 55, 0.3);
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #C5A028 100%);
+    --gradient-dark: linear-gradient(180deg, #050505 0%, #111 100%);
+    --gradient-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8));
+
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --space-xl: 4rem;
+    --space-2xl: 8rem;
+
+    /* Typography */
+    --font-serif: 'Cinzel', serif;
+    --font-body: 'Lato', system-ui, sans-serif;
+
+    /* Shadows/Borders */
+    --shadow-gold: 0 0 15px var(--color-primary-glow);
+    --border-gold-double: 3px double var(--color-primary);
+
+    /* Animation */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}

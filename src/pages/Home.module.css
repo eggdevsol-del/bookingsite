@@ -1,0 +1,445 @@
+.page {
+    background: #080808;
+    min-height: 100vh;
+    color: #d4af37;
+    overflow-x: hidden;
+}
+
+.splitHero {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* Center the 102% width content so seam is at 50% */
+    overflow: hidden;
+    border-bottom: 4px double #333;
+    background-color: #000;
+}
+
+.heroLeft {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50.5%;
+    /* Slight overlap, virtually no centering shift */
+    height: 100%;
+    z-index: 1;
+}
+
+.heroRight {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50.5%;
+    /* Slight overlap */
+    height: 100%;
+    z-index: 1;
+}
+
+.heroImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Gradients with hard stops to ensure absolute black edge */
+.heroGradientLeft {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, #000 85%, #000 100%);
+}
+
+.heroGradientRight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, #000 85%, #000 100%);
+}
+
+.heroCenterContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Ideally centered */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0) 80%);
+}
+
+.titleWrapper {
+    text-align: center;
+    background: transparent;
+    padding: 2rem;
+}
+
+.mainTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.titleTop {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    color: #F4D03F;
+    letter-spacing: 0.05em;
+    background: linear-gradient(to bottom, #F4D03F, #ae8b2d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.titleSub {
+    font-size: 1rem;
+    letter-spacing: 0.5em;
+    color: #aaa;
+    margin-top: 0.5rem;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #444;
+    padding: 0.2rem 2rem;
+}
+
+.ornamentDivider {
+    margin: 1rem 0;
+}
+
+.heroCrest {
+    width: 60px;
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+}
+
+.heroHeadline {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    line-height: 1.1;
+    color: #e0c080;
+    border-bottom: none;
+    margin: 1rem 0;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+    text-align: center;
+}
+
+.heroByline {
+    font-size: 0.9rem;
+    letter-spacing: 0.3em;
+    color: #888;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.heroCta {
+    margin-top: 1rem;
+}
+
+.heroBtn {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #ae8b2d;
+    color: #ae8b2d;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    font-size: 0.8rem;
+    padding: 1rem 2rem;
+    letter-spacing: 0.2em;
+}
+
+@media (max-width: 768px) {
+    .titleTop {
+        font-size: 2.8rem;
+        /* Scaled down from 4rem */
+        line-height: 1.1;
+    }
+
+    .titleSub {
+        font-size: 0.8rem;
+        letter-spacing: 0.3em;
+        padding: 0.2rem 1rem;
+    }
+
+    .heroHeadline {
+        font-size: 1.8rem;
+        /* Scaled down from 2.8rem */
+        line-height: 1.2;
+    }
+
+    .heroByline {
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        width: 90%;
+        margin: 0 auto 2rem;
+        line-height: 1.6;
+    }
+
+    .heroCrest {
+        width: 45px;
+        /* Smaller crest */
+    }
+
+    .heroCenterContent {
+        background: radial-gradient(circle at center, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0.2) 100%);
+    }
+
+    /* Ensure split hero touches edges? It does already with width 100% */
+}
+
+/* INTRO GRID REPLICA */
+.introGrid {
+    width: 100%;
+    margin: 0;
+    padding: 4rem 0;
+    /* Remove side padding to go full width? Or keep container? User said "full width of screenspace". Let's go full width but with centered content max-width inside if needed, or just full block. The screenshot shows borders. I'll make them stacked blocks. */
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    /* Connect them maybe? or gap? Screenshot shows gap. Let's do gap. */
+    border-bottom: none;
+}
+
+.introCard {
+    width: 100%;
+    margin-bottom: 4rem;
+    padding: 3rem 1rem;
+    background: #080808;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.introCard::before {
+    display: none;
+    /* Remove the inner double border effect for full width sections, cleaner look */
+}
+
+/* Card Frame - Control the size of the video/image within the full width section */
+.cardFrame {
+    width: 100%;
+    max-width: 600px;
+    /* Keep the media reasonable size */
+    margin: 1.5rem 0;
+    border: 4px solid #111;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    aspect-ratio: 16/9;
+    /* Widescreen for cinematic feel */
+    overflow: hidden;
+}
+
+.cardHeader {
+    font-family: var(--font-serif);
+    color: #e0c080;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    margin: 1.5rem 0 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.cardHeader::before,
+.cardHeader::after {
+    content: '◆';
+    font-size: 0.6rem;
+    vertical-align: middle;
+    color: #555;
+    margin: 0 0.5rem;
+}
+
+.cardFrame {
+    margin: 0 1.5rem 1rem;
+    border: 4px solid #111;
+    box-shadow: 0 0 0 1px #333;
+    /* Outer thin line */
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+
+.cardImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(30%) contrast(1.1);
+    transition: transform 0.5s ease;
+}
+
+.introCard:hover .cardImg {
+    transform: scale(1.05);
+}
+
+.cardText {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.cardBtn {
+    margin-bottom: 2rem;
+    font-size: 0.75rem;
+    padding: 0.6rem 1.5rem;
+    border-color: #444;
+}
+
+/* GALLERY REPLICA */
+.gallerySection {
+    padding: 4rem 2rem;
+    text-align: center;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231a1a1a' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.galleryTitleProps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.decorativeLine {
+    height: 1px;
+    width: 60px;
+    background: linear-gradient(to right, transparent, #ae8b2d, transparent);
+}
+
+.galleryHeader h3 {
+    font-size: 2rem;
+    color: #d4af37;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: #666;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.galleryGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.galleryItem {
+    aspect-ratio: 3/4;
+    border: 1px solid #333;
+    transition: opacity 0.3s;
+}
+
+.galleryItem:hover {
+    border-color: #d4af37;
+}
+
+.galleryImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(50%) contrast(1.2) brightness(0.8);
+}
+
+.trustStats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 4rem 2rem;
+    background: #050505;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    text-align: center;
+}
+
+.statItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.statValue {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+
+    /* Gold Shimmer Effect */
+    background: linear-gradient(to right,
+            #ae8b2d 20%,
+            #fff8db 50%,
+            #ae8b2d 80%);
+    background-size: 200% auto;
+
+    color: #d4af37;
+    /* Fallback */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: shimmer 4s linear infinite;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+    will-change: background-position;
+}
+
+.statLabel {
+    color: #888;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    max-width: 150px;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .trustStats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem 1rem;
+        padding: 3rem 1rem;
+    }
+
+    .statValue {
+        font-size: 2rem;
+    }
+}
+
+.footerCta {
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+}
+
+.footerCta h3 {
+    font-size: 1.5rem;
+    color: #d4af37;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.footerCta p {
+    color: #888;
+    text-align: center;
+}
