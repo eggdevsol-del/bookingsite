@@ -32,7 +32,7 @@ export const AboutSheet: React.FC = () => {
                 {/* Text Content Below */}
                 <div className={styles.contentSide}>
                     <h2 className={styles.title}>THE STANDARD</h2>
-                    <p className={styles.subtitle}>EST. 2024</p>
+                    <p className={styles.subtitle}>EST. 2011</p>
 
                     <div className={styles.textBlock}>
                         <p>
