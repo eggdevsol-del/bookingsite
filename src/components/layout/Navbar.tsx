@@ -52,8 +52,6 @@ export const Navbar: React.FC = () => {
                     >
                         BOOKING
                     </button>
-                    <span style={{ color: '#444' }}>|</span>
-                    <Link to="/contact" className={styles.link}>CONTACT</Link>
                     <div className={styles.socials}>
                         <a href="#" className={styles.socialLink}><Instagram size={16} /></a>
                         <a href="#" className={styles.socialLink}><Facebook size={16} /></a>
