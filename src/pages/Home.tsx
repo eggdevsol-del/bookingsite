@@ -80,7 +80,7 @@ export const Home: React.FC = () => {
                 <div className={styles.statItem}>
                     <ScrollReveal>
                         <span className={styles.statValue}>Private</span>
-                        <span className={styles.statLabel}>Hand Crafted Studio</span>
+                        <span className={styles.statLabel}>Purpose Built Studio</span>
                     </ScrollReveal>
                 </div>
                 <div className={styles.statItem}>
