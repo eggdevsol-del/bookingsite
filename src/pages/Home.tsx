@@ -49,11 +49,9 @@ export const Home: React.FC = () => {
                             <span className={styles.titleTop}>PIRIPI MASON</span>
                             <span className={styles.titleSub}>TATTOO ARTIST</span>
                         </h1>
-                        <div className={styles.ornamentDivider}>
-                            <img src="/src/assets/logo_crest.png" alt="Crest" className={styles.heroCrest} />
-                        </div>
+
                         <h2 className={styles.heroHeadline}>
-                            Timeless Tattoo Artistry.<br />Executed Without Compromise.
+                            Craftsmanship Without Compromise.
                         </h2>
                         <p className={styles.heroByline}>BRISBANE BASED AWARD WINNING REALISM TATTOO ARTISTRY</p>
 

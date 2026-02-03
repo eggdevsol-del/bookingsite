@@ -24,23 +24,35 @@ export const BookingSheet: React.FC = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        const subject = `Booking Inquiry: ${formData.name}`;
-        const body = `Name: ${formData.name}
+        // 1. Subject Line: "Inquiry Tattoo" prefix as requested
+        const subject = `Inquiry Tattoo: ${formData.name ? formData.name : 'New Client'} - ${formData.placement}`;
+
+        // 2. Structured Body for Artist Readability
+        // Using %0D%0A for universal newlines in mailto links
+        const body = `
+*** NEW TATTOO INQUIRY ***
+
+-- CLIENT DETAILS --
+Name: ${formData.name}
 Email: ${formData.email}
 Phone: ${formData.phone}
 
+-- PROJECT INFO --
 Placement: ${formData.placement}
 Budget: ${formData.budget}
 
-Description:
+-- DESCRIPTION --
 ${formData.description}
 
-[Sent from Piripi Mason Tattoo App]`;
+__________________________
+Sent via P Mason Tattoo App`.trim();
 
+        // 3. Construct Mailto Link
+        // Note: Replace 'pmason@example.com' with the actual artist email when available.
         const mailtoLink = `mailto:pmason@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
         window.location.href = mailtoLink;
-        closeBooking(); // Close sheet after triggering
+        closeBooking();
     };
 
     // Prevent background scroll when open
