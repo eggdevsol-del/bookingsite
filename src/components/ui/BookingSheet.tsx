@@ -51,8 +51,7 @@ __________________________
 Sent via P Mason Tattoo App`.trim();
 
         // 3. Construct Mailto Link
-        // Note: Replace 'pmason@example.com' with the actual artist email when available.
-        const mailtoLink = `mailto:pmason@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        const mailtoLink = `mailto:bookings@pmasontattoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
         window.location.href = mailtoLink;
         closeBooking();

@@ -48,7 +48,7 @@ __________________________
 __________________________
 Sent via P Mason Tattoo App - Creative Freedom Promo`.trim();
 
-        const mailtoLink = `mailto:pmason@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        const mailtoLink = `mailto:bookings@pmasontattoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
         window.location.href = mailtoLink;
         closeCreativeFreedom();
