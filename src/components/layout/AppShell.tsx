@@ -18,7 +18,7 @@ export const AppShell: React.FC = () => {
                 <Outlet />
             </main>
             <footer style={{
-                padding: '2rem',
+                padding: '1.5rem',
                 textAlign: 'center',
                 borderTop: '1px solid #222',
                 background: '#050505',

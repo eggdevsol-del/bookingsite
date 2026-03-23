@@ -53,8 +53,8 @@ export const Navbar: React.FC = () => {
                         BOOKING
                     </button>
                     <div className={styles.socials}>
-                        <a href="#" className={styles.socialLink}><Instagram size={16} /></a>
-                        <a href="#" className={styles.socialLink}><Facebook size={16} /></a>
+                        <a href="https://www.instagram.com/p_mason_tattoo_artist/" target="_blank" rel="noopener noreferrer" className={styles.socialLink}><Instagram size={16} /></a>
+                        <a href="https://www.facebook.com/PMasontattooartist" target="_blank" rel="noopener noreferrer" className={styles.socialLink}><Facebook size={16} /></a>
                     </div>
                 </div>
 
@@ -87,8 +87,8 @@ export const Navbar: React.FC = () => {
                         Booking
                     </button>
                     <div className={styles.mobileSocials} style={{ display: 'flex', gap: '2rem', marginTop: '2rem' }}>
-                        <a href="#" style={{ color: '#d4af37' }}><Instagram size={32} /></a>
-                        <a href="#" style={{ color: '#d4af37' }}><Facebook size={32} /></a>
+                        <a href="https://www.instagram.com/p_mason_tattoo_artist/" target="_blank" rel="noopener noreferrer" style={{ color: '#d4af37' }}><Instagram size={32} /></a>
+                        <a href="https://www.facebook.com/PMasontattooartist" target="_blank" rel="noopener noreferrer" style={{ color: '#d4af37' }}><Facebook size={32} /></a>
                     </div>
                 </div>
             </div>
