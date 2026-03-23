@@ -419,18 +419,6 @@
     line-height: 1.4;
 }
 
-@media (max-width: 768px) {
-    .trustStats {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 3rem 1rem;
-        padding: 3rem 1rem;
-    }
-
-    .statValue {
-        font-size: 2rem;
-    }
-}
-
 .footerCta {
     padding: 2rem 2rem 1rem;
     text-align: center;
@@ -446,6 +434,49 @@
 .footerCta p {
     color: #888;
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    .trustStats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem 1rem;
+        padding: 3rem 1rem;
+    }
+
+    .statValue {
+        font-size: 2rem;
+    }
+
+    .titleTop {
+        opacity: 0.85;
+    }
+
+    .heroHeadline {
+        font-size: 0.8rem;
+        transform: translateY(485px);
+    }
+
+    .heroByline {
+        transform: translateY(-138px);
+    }
+
+    .heroBtn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.69rem;
+    }
+
+    .footerCta h3 {
+        font-size: 0.8rem;
+    }
+
+    .footerCta p {
+        font-size: 0.69rem;
+    }
+
+    .footerBtn {
+        background: #000;
+        font-size: 0.69rem;
+    }
 }
 
 .inquiryEmail {

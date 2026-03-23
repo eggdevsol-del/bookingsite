@@ -42,7 +42,7 @@ export const Home: React.FC = () => {
                 <div className={styles.heroCenterContent}>
                     <div className={styles.titleWrapper}>
                         <h1 className={styles.mainTitle}>
-                            <span className={styles.titleTop}>PIRIPI MASON</span>
+                            <span className={styles.titleTop}>P MASON</span>
                             <span className={styles.titleSub}>TATTOO ARTIST</span>
                         </h1>
 
@@ -104,7 +104,7 @@ export const Home: React.FC = () => {
                 </ScrollReveal>
                 <ScrollReveal>
                     <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <GoldButton onClick={openBooking}>REQUEST CONSULTATION</GoldButton>
+                        <GoldButton className={styles.footerBtn} onClick={openBooking}>REQUEST CONSULTATION</GoldButton>
                         <span className={styles.inquiryEmail}>Enquiries: bookings@pmasontattoo.com</span>
                     </div>
                 </ScrollReveal>
