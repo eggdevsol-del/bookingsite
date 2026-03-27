@@ -1,4 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+// Declare fbq for TypeScript
+declare global {
+    interface Window { fbq: (...args: any[]) => void; }
+}
 import { X } from 'lucide-react';
 import { GoldButton } from './GoldButton';
 import { useUIStore } from '../../store/uiStore';
@@ -55,14 +60,26 @@ Sent via P Mason Tattoo App`.trim();
         // 3. Construct Mailto Link
         const mailtoLink = `mailto:bookings@pmasontattoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
+        // Meta Pixel: Track consultation form submission as a Lead
+        if (typeof window.fbq === 'function') {
+            window.fbq('track', 'Lead', {
+                content_name: 'Consultation Request',
+                content_category: 'Tattoo Booking',
+            });
+        }
+
         window.location.href = mailtoLink;
         closeBooking();
     };
 
-    // Prevent background scroll when open
-    React.useEffect(() => {
+    // Prevent background scroll when open + track Meta Pixel ViewContent
+    useEffect(() => {
         if (isBookingOpen) {
             document.body.style.overflow = 'hidden';
+            // Meta Pixel: Track booking form opened
+            if (typeof window.fbq === 'function') {
+                window.fbq('track', 'ViewContent', { content_name: 'Booking Form' });
+            }
         } else {
             document.body.style.overflow = 'auto';
         }
