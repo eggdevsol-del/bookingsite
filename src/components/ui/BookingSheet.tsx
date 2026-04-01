@@ -21,55 +21,63 @@ export const BookingSheet: React.FC = () => {
         budget: ''
     });
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setIsSubmitting(true);
+        setSubmitStatus('idle');
 
-        // 1. Subject Line: "Inquiry Tattoo" prefix as requested
-        const subject = `Inquiry Tattoo: ${formData.name ? formData.name : 'New Client'} - ${formData.placement}`;
-
-        // 2. Structured Body for Artist Readability
-        // Using %0D%0A for universal newlines in mailto links
-        const body = `
-REPLY TO: ${formData.email}
-__________________________
-
-*** NEW TATTOO INQUIRY ***
-
--- CLIENT DETAILS --
-Name: ${formData.name}
-Phone: ${formData.phone}
-
--- PROJECT INFO --
-Placement: ${formData.placement}
-Budget: ${formData.budget}
-
--- DESCRIPTION --
-${formData.description}
-
-__________________________
-
-** PLEASE ATTACH YOUR REFERENCES AND BODY PHOTOS TO THIS EMAIL **
-__________________________
-Sent via P Mason Tattoo App`.trim();
-
-        // 3. Construct Mailto Link
-        const mailtoLink = `mailto:bookings@pmasontattoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-        // Meta Pixel: Track consultation form submission as a Lead
-        if (typeof window.fbq === 'function') {
-            window.fbq('track', 'Lead', {
-                content_name: 'Consultation Request',
-                content_category: 'Tattoo Booking',
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify({
+                    access_key: "c1389843-5af5-4f04-acd2-6558a4a1c8e4", // Web3Forms Access Key
+                    subject: `Inquiry Tattoo: ${formData.name || 'New Client'} - ${formData.placement}`,
+                    from_name: formData.name,
+                    replyto: formData.email,
+                    message: `*** NEW TATTOO INQUIRY ***\n\n-- CLIENT DETAILS --\nName: ${formData.name}\nPhone: ${formData.phone || 'Not provided'}\nEmail: ${formData.email}\n\n-- PROJECT INFO --\nPlacement: ${formData.placement}\nBudget: ${formData.budget || 'Not provided'}\n\n-- DESCRIPTION --\n${formData.description}`
+                }),
             });
-        }
 
-        window.location.href = mailtoLink;
-        closeBooking();
+            const result = await response.json();
+
+            if (result.success) {
+                // Meta Pixel: Track consultation form submission as a Lead ONLY on success
+                if (typeof window.fbq === 'function') {
+                    window.fbq('track', 'Lead', {
+                        content_name: 'Consultation Request',
+                        content_category: 'Tattoo Booking',
+                    });
+                }
+
+                setSubmitStatus('success');
+                // Auto-close after 3 seconds on success
+                setTimeout(() => {
+                    closeBooking();
+                    setSubmitStatus('idle');
+                    setFormData({ name: '', email: '', phone: '', placement: '', description: '', budget: '' });
+                }, 3000);
+            } else {
+                console.error("Web3Forms error", result);
+                setSubmitStatus('error');
+            }
+        } catch (error) {
+            console.error("Submission failed", error);
+            setSubmitStatus('error');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     // Prevent background scroll when open + track Meta Pixel ViewContent
@@ -173,8 +181,21 @@ Sent via P Mason Tattoo App`.trim();
                             />
                         </div>
 
-                        <div className={styles.submitBtn}>
-                            <GoldButton type="submit">REQUEST CONSULTATION</GoldButton>
+                        <div className={styles.submitBtn} style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                            <GoldButton type="submit" disabled={isSubmitting}>
+                                {isSubmitting ? 'SENDING INQUIRY...' : submitStatus === 'success' ? 'INQUIRY SENT!' : 'REQUEST CONSULTATION'}
+                            </GoldButton>
+
+                            {submitStatus === 'error' && (
+                                <p style={{ color: '#ff4444', fontSize: '14px', textAlign: 'center', margin: 0 }}>
+                                    Failed to send. Please try again.
+                                </p>
+                            )}
+                            {submitStatus === 'success' && (
+                                <p style={{ color: '#44ff44', fontSize: '14px', textAlign: 'center', margin: 0 }}>
+                                    We've received your request! Check your email shortly.
+                                </p>
+                            )}
                         </div>
                     </form>
                 </div>
