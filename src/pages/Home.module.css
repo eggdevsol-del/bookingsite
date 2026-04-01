@@ -453,11 +453,11 @@
 
     .heroHeadline {
         font-size: 0.8rem;
-        transform: translateY(485px);
+        margin-top: 2rem;
     }
 
     .heroByline {
-        transform: translateY(-138px);
+        margin-top: 1rem;
     }
 
     .heroBtn {
