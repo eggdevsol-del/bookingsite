@@ -1,0 +1,9 @@
+node_modules/
+dist/
+data/
+art-src/raw/*.glb
+.DS_Store
+*.log
+test-output/
+test-output.log
+.env
